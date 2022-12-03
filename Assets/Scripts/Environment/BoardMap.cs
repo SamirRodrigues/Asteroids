@@ -16,6 +16,7 @@ public class BoardMap : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+
         Vector2 newPos = collision.GetComponent<Transform>().position;
 
         if(newPos.y > topBoard)

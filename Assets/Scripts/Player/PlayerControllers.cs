@@ -7,7 +7,6 @@ public class PlayerControllers : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    [SerializeField]
 
     private void Awake()
     {
@@ -46,14 +45,5 @@ public class PlayerControllers : MonoBehaviour
             Debug.Log("HyperSpace");
 
         }
-    }
-
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Debug.Log("Shoot");
-
-        }
-    }
+    }    
 }
