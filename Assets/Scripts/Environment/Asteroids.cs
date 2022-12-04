@@ -46,7 +46,6 @@ public class Asteroids : MonoBehaviour
 
             GameManager.Instance.IncreaseScore(asteroidsPoints);
 
-            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }

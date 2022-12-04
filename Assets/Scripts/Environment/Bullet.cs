@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("Asteroid"))
+        if(!collision.transform.CompareTag("Player"))
         {
             Destroy(this.gameObject);
         }  
