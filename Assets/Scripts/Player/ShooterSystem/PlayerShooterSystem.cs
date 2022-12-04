@@ -8,6 +8,15 @@ public class PlayerShooterSystem : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float bulletForce;
 
+    private PlayerInputActions playerInputActions;
+
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Shoot.performed += Shoot;
+    }
+
     public void Shoot(InputAction.CallbackContext context)
     {
         if (context.performed)
