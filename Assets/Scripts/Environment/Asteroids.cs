@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Asteroids : MonoBehaviour
 {
+    [Header("Asteroid Control")]
     [SerializeField] float maxSpeed;
     [SerializeField] float maxTorque;
 
+    [Header("Fragmentation Instances Settings")]
     [SerializeField] private GameObject asteroidPrefab;
     [SerializeField] private int maxAsteroidsInstances = 4;
+
+    [Header("Score Settings")]
+    [SerializeField] private int asteroidsPoints;
+
 
     private Rigidbody2D rb;
 
@@ -37,6 +43,8 @@ public class Asteroids : MonoBehaviour
 
     private void OnDestroy()
     {
+        GameManager.Instance.IncreaseScore(asteroidsPoints);
+
         if(asteroidPrefab)
         {
             for (int i = 0; i < Random.Range(2,maxAsteroidsInstances); i++)

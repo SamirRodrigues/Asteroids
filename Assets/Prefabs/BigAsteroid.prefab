@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8091584319480148636}
   - component: {fileID: 6796782326424341972}
   - component: {fileID: 1251688974924318767}
-  - component: {fileID: -4017362972796777741}
   - component: {fileID: -1722930382298537456}
+  - component: {fileID: -4017362972796777741}
   m_Layer: 0
   m_Name: BigAsteroid
   m_TagString: Asteroid
@@ -108,22 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4017362972796777741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117806744363967992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54595a235c2ccc2438738576412a956e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 100
-  maxTorque: 100
-  asteroidPrefab: {fileID: 4425944900675798020, guid: 9353be72ec09cc941b7b58070da3d219, type: 3}
-  maxAsteroidsInstances: 3
 --- !u!58 &-1722930382298537456
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +124,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-4017362972796777741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117806744363967992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54595a235c2ccc2438738576412a956e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 100
+  maxTorque: 100
+  asteroidPrefab: {fileID: 4425944900675798020, guid: 9353be72ec09cc941b7b58070da3d219, type: 3}
+  maxAsteroidsInstances: 2
+  asteroidsPoints: 10

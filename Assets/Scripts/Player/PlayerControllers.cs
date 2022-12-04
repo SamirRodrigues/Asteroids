@@ -23,6 +23,7 @@ public class PlayerControllers : MonoBehaviour
         LeftRotation();
         RightRotation();
         Propulsion();
+        HyperSpace();
     }
 
     public void LeftRotation()
@@ -52,10 +53,10 @@ public class PlayerControllers : MonoBehaviour
 
     public void HyperSpace()
     {
-        if (playerInputActions.Player.HyperSpace.ReadValue<bool>())
+        if (playerInputActions.Player.HyperSpace.ReadValue<float>() != 0)
         {
-            Debug.Log("HyperSpace");
-
+            Debug.Log("HyperSpace - NOT IMPLEMENTED YET");
+             
         }
     }    
 }

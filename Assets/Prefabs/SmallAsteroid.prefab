@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7830189, g: 0.69806874, b: 0.69806874, a: 1}
+  m_Color: {r: 0.7924528, g: 0.4448202, b: 0.4448202, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -120,10 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54595a235c2ccc2438738576412a956e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
-  maxTorque: 100
+  maxSpeed: 300
+  maxTorque: 300
   asteroidPrefab: {fileID: 0}
   maxAsteroidsInstances: 3
+  asteroidsPoints: 20
 --- !u!58 &6722186009479088620
 CircleCollider2D:
   m_ObjectHideFlags: 0
