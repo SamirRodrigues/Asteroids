@@ -36,22 +36,18 @@ public class Asteroids : MonoBehaviour
     {       
         if(collision.transform.CompareTag("Bullet"))
         {
+            if (asteroidPrefab)
+            {
+                for (int i = 0; i < Random.Range(2, maxAsteroidsInstances); i++)
+                {
+                    Instantiate(asteroidPrefab, transform.position, transform.rotation);
+                }
+            }
+
+            GameManager.Instance.IncreaseScore(asteroidsPoints);
+
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.IncreaseScore(asteroidsPoints);
-
-        if(asteroidPrefab)
-        {
-            for (int i = 0; i < Random.Range(2,maxAsteroidsInstances); i++)
-            {
-                Instantiate(asteroidPrefab, transform.position, transform.rotation);
-            }
-        }
-    }
-
 }

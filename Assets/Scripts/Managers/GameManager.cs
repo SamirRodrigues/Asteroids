@@ -30,12 +30,16 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore(int value)
     {
         score += value;
-        Debug.Log(score);
     }
 
     public int GetScore()
     {
         return score;
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("GameOver");
     }
 
     
