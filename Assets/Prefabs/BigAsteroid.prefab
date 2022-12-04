@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1251688974924318767}
   - component: {fileID: -1722930382298537456}
   - component: {fileID: -4017362972796777741}
+  - component: {fileID: -4927147206036324635}
   m_Layer: 0
   m_Name: BigAsteroid
   m_TagString: Asteroid
@@ -141,3 +142,15 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 4425944900675798020, guid: 9353be72ec09cc941b7b58070da3d219, type: 3}
   maxAsteroidsInstances: 2
   asteroidsPoints: 10
+--- !u!114 &-4927147206036324635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117806744363967992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737cce69293b92848a21b26fe7e088db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

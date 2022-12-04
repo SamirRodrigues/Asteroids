@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }
+
+    [HideInInspector] public UnityEvent OnLivesChange;
 
     [SerializeField] private int lives;
     [SerializeField] private Vector3 inicialPosition;
@@ -19,8 +23,6 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -47,6 +49,8 @@ public class PlayerManager : MonoBehaviour
         this.gameObject.SetActive(false);
         //Instantiate Particles
         lives -= 1;
+
+        OnLivesChange?.Invoke();
 
         if(lives <= 0)
         {

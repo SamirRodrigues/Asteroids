@@ -5,43 +5,28 @@ using UnityEngine.UIElements;
 
 public class BoardMap : MonoBehaviour
 {
-    [SerializeField]
-    private float topBoard;
-    [SerializeField]
-    private float downBoard;
-    [SerializeField]
-    private float leftBoard;
-    [SerializeField]
-    private float rightBoard;
+    public static BoardMap Instance;
+
+    public float topBoard;
+    public float downBoard;
+    public float leftBoard;
+    public float rightBoard;
+
+    private void Awake()
+    {
+        if (Instance != null)
+            Destroy(gameObject);
+
+        Instance = this;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        var teleportableObject = collision.GetComponent<CrossBorders>();
 
-        Vector2 newPos = collision.GetComponent<Transform>().position;
-
-        if(newPos.y > topBoard)
+        if (teleportableObject != null)
         {
-            newPos.y = downBoard;
-            collision.GetComponent<Transform>().position = newPos;
+            teleportableObject.CrossLine();
         }
-        
-        if(newPos.y < downBoard)
-        {
-            newPos.y = topBoard;
-            collision.GetComponent<Transform>().position = newPos;
-        }
-
-        if (newPos.x > rightBoard)
-        {
-            newPos.x = leftBoard;
-            collision.GetComponent<Transform>().position = newPos;
-        }
-        
-        if (newPos.x < leftBoard)
-        {
-            newPos.x = rightBoard;
-            collision.GetComponent<Transform>().position = newPos;
-        }
-
     }
 }
