@@ -47,8 +47,7 @@ public class PlayerControllers : MonoBehaviour
         if (playerInputActions.Player.Propulsion.ReadValue<float>() != 0)
         {     
             rb.AddRelativeForce(propulsionValue * Vector2.up * Time.deltaTime, ForceMode2D.Impulse );
-        }
-        
+        }        
     }
 
     public void HyperSpace()

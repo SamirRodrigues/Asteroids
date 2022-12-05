@@ -352,11 +352,12 @@ GameObject:
   m_Component:
   - component: {fileID: 654992800}
   - component: {fileID: 654992799}
-  - component: {fileID: 654992797}
-  - component: {fileID: 654992803}
   - component: {fileID: 654992801}
   - component: {fileID: 654992802}
+  - component: {fileID: 654992797}
+  - component: {fileID: 654992803}
   - component: {fileID: 654992804}
+  - component: {fileID: 654992805}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -376,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3353d9786be814581f131e9de2b8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueValue: 10
+  torqueValue: 50
   propulsionValue: 10
 --- !u!212 &654992799
 SpriteRenderer:
@@ -459,7 +460,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 3
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -507,7 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4092708168839931073, guid: 1e8d6182db2e8664884ce03cf53abc50, type: 3}
-  bulletForce: 10
+  bulletForce: 30
+  bulletDurationTime: 1
 --- !u!114 &654992804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +522,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f191c8c11b6f849a309c66c7530aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLivesChange:
+    m_PersistentCalls:
+      m_Calls: []
   lives: 2
   inicialPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &654992805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654992796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737cce69293b92848a21b26fe7e088db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742833923
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19b905e002c86848a598027b81af206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScoreChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1422682295
 Transform:
   m_ObjectHideFlags: 0
@@ -762,10 +782,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1722930382298537456, guid: d0f7983f14fa6374a884a864a763b0ec, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1117806744363967992, guid: d0f7983f14fa6374a884a864a763b0ec, type: 3}
       propertyPath: m_Name
       value: BigAsteroid

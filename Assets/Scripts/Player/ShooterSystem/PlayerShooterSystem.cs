@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerShooterSystem : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float bulletForce;
+    [SerializeField] private float bulletForce = 30f;
+    [SerializeField] private float bulletDurationTime = 2f;
 
     private PlayerInputActions playerInputActions;
 
@@ -23,7 +24,7 @@ public class PlayerShooterSystem : MonoBehaviour
         {
             GameObject newBullet = Instantiate(bullet,transform.position, transform.rotation);
             newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletForce * Time.fixedDeltaTime * 1000f);
-            Destroy(newBullet, 3.5f);
+            Destroy(newBullet, bulletDurationTime);
         }
     }
 }
