@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4719986951497062838}
   - component: {fileID: 2796668767235758269}
   - component: {fileID: 8225996172228191399}
+  - component: {fileID: 4971366781034879476}
   - component: {fileID: -2292902054834310141}
   - component: {fileID: -4107459454268769373}
-  - component: {fileID: 4971366781034879476}
   m_Layer: 7
   m_Name: SmallAsteroid
   m_TagString: Asteroid
@@ -109,35 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2292902054834310141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6129679994401479490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54595a235c2ccc2438738576412a956e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 300
-  maxTorque: 300
-  asteroidPrefab: {fileID: 0}
-  maxAsteroidsInstances: 3
-  asteroidsPoints: 20
---- !u!114 &-4107459454268769373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6129679994401479490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737cce69293b92848a21b26fe7e088db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &4971366781034879476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +135,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-2292902054834310141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129679994401479490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54595a235c2ccc2438738576412a956e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 300
+  maxTorque: 300
+  asteroidPrefab: {fileID: 0}
+  maxAsteroidsInstances: 3
+  asteroidsPoints: 20
+  destructionSound: {fileID: 8300000, guid: a8b7f04e8d2435244b495eec7fe91c69, type: 3}
+--- !u!114 &-4107459454268769373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6129679994401479490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737cce69293b92848a21b26fe7e088db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

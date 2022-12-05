@@ -15,6 +15,9 @@ public class Asteroids : MonoBehaviour
     [Header("Score Settings")]
     [SerializeField] private int asteroidsPoints;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip destructionSound;
+
 
     private Rigidbody2D rb;
 
@@ -46,7 +49,11 @@ public class Asteroids : MonoBehaviour
 
             GameManager.Instance.IncreaseScore(asteroidsPoints);
 
+            SoundBox.Instance.PlaySound(destructionSound);
+            
             Destroy(this.gameObject);
         }
     }
+
+    
 }
