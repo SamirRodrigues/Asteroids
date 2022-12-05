@@ -22,7 +22,6 @@ public class UILives : MonoBehaviour
 
     void UpdateLive()
     {
-        Debug.Log(PlayerManager.Instance.GetPlayerLives());
         rect.sizeDelta = new Vector2(liveImageWidth * PlayerManager.Instance.GetPlayerLives(), rect.sizeDelta.y);
     }
 }

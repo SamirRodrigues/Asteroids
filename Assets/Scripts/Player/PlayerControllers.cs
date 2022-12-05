@@ -11,6 +11,8 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private float torqueValue = 10f;
     [SerializeField] private float propulsionValue = 10f;
 
+    [SerializeField] private GameObject propulsionEffect;
+
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -45,9 +47,15 @@ public class PlayerControllers : MonoBehaviour
     public void Propulsion()
     {        
         if (playerInputActions.Player.Propulsion.ReadValue<float>() != 0)
-        {     
+        {
             rb.AddRelativeForce(propulsionValue * Vector2.up * Time.deltaTime, ForceMode2D.Impulse );
-        }        
+            propulsionEffect.gameObject.SetActive( true );
+            propulsionEffect.GetComponent<PropulsionEffect>().StartAnimation();
+        }
+        else
+        {
+            propulsionEffect.gameObject.SetActive( false );
+        }
     }
 
     public void HyperSpace()

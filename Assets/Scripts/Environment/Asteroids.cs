@@ -34,7 +34,7 @@ public class Asteroids : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {       
-        if(collision.transform.CompareTag("Bullet"))
+        if(!collision.transform.CompareTag("Asteroid"))
         {
             if (asteroidPrefab)
             {

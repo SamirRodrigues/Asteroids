@@ -10,8 +10,10 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnLivesChange;
 
-    [SerializeField] private Vector3 inicialPosition;
+    private Vector3 inicialPosition;
     private int lives;
+    
+    private float invunerabiliteTime = 3f;
 
     private void Awake()
     {
@@ -38,21 +40,25 @@ public class PlayerManager : MonoBehaviour
         return lives;
     }
 
+    public float GetInvunerabiliteTime()
+    {
+        return invunerabiliteTime;
+    }
+
     private void ResetPlayer()
     {
         this.gameObject.transform.position = inicialPosition;
         //Start Cooldown to Respawn
         this.gameObject.SetActive(true);
-        //Active Invunerability (blink effect)
+        StartCoroutine(Invulnerabilite());
     }
 
     void PlayerDeath()
     {
-        this.gameObject.SetActive(false);
         //Instantiate Particles
         lives -= 1;
-
         OnLivesChange?.Invoke();
+        this.gameObject.SetActive(false);
 
         if(lives <= 0)
         {
@@ -70,5 +76,15 @@ public class PlayerManager : MonoBehaviour
         {            
             PlayerDeath();
         }
+    }
+
+
+    IEnumerator Invulnerabilite()
+    {
+        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().angularDrag = 0;
+        yield return new WaitForSeconds(invunerabiliteTime);
+        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<Rigidbody2D>().angularDrag = 3;
     }
 }
