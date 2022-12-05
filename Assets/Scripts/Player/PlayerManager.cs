@@ -10,8 +10,8 @@ public class PlayerManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnLivesChange;
 
-    [SerializeField] private int lives;
     [SerializeField] private Vector3 inicialPosition;
+    private int lives;
 
     private void Awake()
     {
@@ -23,11 +23,13 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        Init();
     }
 
-    private void Start()
+    private void Init()
     {
-        lives = 2;
+        lives = 5;
         inicialPosition = new Vector3(0, 0, 0);
     }
 
