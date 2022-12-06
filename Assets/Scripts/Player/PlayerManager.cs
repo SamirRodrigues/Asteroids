@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     private int lives;
     
     private float invunerabiliteTime = 3f;
+    private bool invulnerable = false;
 
     private void Awake()
     {
@@ -34,6 +35,19 @@ public class PlayerManager : MonoBehaviour
     {
         lives = 5;
         inicialPosition = new Vector3(0, 0, 0);
+    }
+
+    private void Update()
+    {
+        if(IsInvunerable())
+        {
+            GetComponent<CrossBorders>().CrossLine();
+        }
+    }
+
+    bool IsInvunerable()
+    {
+        return invulnerable;
     }
 
     public int GetPlayerLives()
@@ -84,8 +98,10 @@ public class PlayerManager : MonoBehaviour
     {
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<Rigidbody2D>().angularDrag = 0;
+        invulnerable = true;
         yield return new WaitForSeconds(invunerabiliteTime);
         GetComponent<PolygonCollider2D>().enabled = true;
         GetComponent<Rigidbody2D>().angularDrag = 3;
+        invulnerable = false;
     }
 }
