@@ -21,6 +21,7 @@ public class SceneController : MonoBehaviour
 
     public void GameOver()
     {
+        LevelManager.Instance.GameOver();
         SceneManager.LoadScene("GameOver");
     }
 

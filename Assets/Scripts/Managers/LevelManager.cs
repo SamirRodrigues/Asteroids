@@ -32,18 +32,21 @@ public class LevelManager : MonoBehaviour
     public void IncreaseAsteroidCounter()
     {
         asteroidCounter++;
-        Debug.Log(asteroidCounter);
     }
 
     public void DecreaseAsteroidCounter()
     {
         asteroidCounter--;
-        Debug.Log(asteroidCounter);
 
-        if(asteroidCounter <= 0)
+        if(asteroidCounter <= 0 && PlayerManager.Instance.GetPlayerLives() > 0)
         {
             levelCounter++;
             SceneController.Instance.ResetLevel();
         }
+    }
+
+    public void GameOver()
+    {
+        Destroy(this.gameObject);
     }
 }
