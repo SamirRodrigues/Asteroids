@@ -13,6 +13,6 @@ public class UIScore : MonoBehaviour
 
     void UpdateScore()
     {
-        scoreText.text = "Score: " + GameManager.Instance.GetScore().ToString();
+        scoreText.text = GameManager.Instance.GetScore().ToString();
     }
 }
