@@ -40,8 +40,6 @@ public class PlayerControllers : MonoBehaviour
         Shoot();
     }
 
-
-
     public void LeftRotation()
     {
         if(playerInputActions.Player.LeftRotation.ReadValue<float>() != 0)
@@ -79,7 +77,6 @@ public class PlayerControllers : MonoBehaviour
         if (playerInputActions.Player.HyperSpace.ReadValue<float>() != 0)
         {
             Debug.Log("HyperSpace - NOT IMPLEMENTED YET");
-             
         }
     }
 

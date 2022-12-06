@@ -13,6 +13,6 @@ public class GameOverHighScore : MonoBehaviour
     }
     void Start()
     {
-        highScore.text = "HighScore: " + PlayerPrefs.GetInt("HighScore").ToString();
+        highScore.text = "HighScore: \n" + PlayerPrefs.GetInt("HighScore").ToString();
     }
 }
