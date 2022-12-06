@@ -12,10 +12,12 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private float propulsionValue = 10f;
 
     [SerializeField] private GameObject propulsionEffect;
+    [SerializeField] private AudioSource propulsionAudio;
 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        propulsionAudio = this.GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
     }
@@ -27,6 +29,8 @@ public class PlayerControllers : MonoBehaviour
         Propulsion();
         HyperSpace();
     }
+
+
 
     public void LeftRotation()
     {
@@ -51,9 +55,11 @@ public class PlayerControllers : MonoBehaviour
             rb.AddRelativeForce(propulsionValue * Vector2.up * Time.deltaTime, ForceMode2D.Impulse );
             propulsionEffect.gameObject.SetActive( true );
             propulsionEffect.GetComponent<PropulsionEffect>().StartAnimation();
+            propulsionAudio.GetComponent<AudioSource>().Play();
         }
         else
         {
+            propulsionAudio.GetComponent<AudioSource>().Stop();
             propulsionEffect.gameObject.SetActive( false );
         }
     }

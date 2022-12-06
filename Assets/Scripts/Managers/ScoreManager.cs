@@ -32,7 +32,6 @@ public class ScoreManager : MonoBehaviour
 
     public void IncreaseScore(int value)
     {
-        OnScoreChange?.Invoke();
         score += value;
 
         PlayerPrefs.SetInt("CurrentScore", score);
@@ -41,6 +40,8 @@ public class ScoreManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
+
+        OnScoreChange?.Invoke();
     }
 
     public int GetScore()

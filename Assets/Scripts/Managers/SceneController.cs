@@ -19,15 +19,8 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

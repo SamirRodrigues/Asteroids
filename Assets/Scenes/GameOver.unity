@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 832927956}
   - component: {fileID: 832927958}
   - component: {fileID: 832927957}
+  - component: {fileID: 832927959}
   m_Layer: 5
   m_Name: High Score
   m_TagString: Untagged
@@ -689,6 +690,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832927955}
   m_CullTransparentMesh: 1
+--- !u!114 &832927959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832927955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de935b9b722406047a34fe67433589b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204642458
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -886,6 +899,7 @@ GameObject:
   - component: {fileID: 1920690044}
   - component: {fileID: 1920690043}
   - component: {fileID: 1920690042}
+  - component: {fileID: 1920690045}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -957,7 +971,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1920690043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920690045}
+        m_TargetAssemblyTypeName: ReturnToMenu, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1920690043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,6 +1022,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920690040}
   m_CullTransparentMesh: 1
+--- !u!114 &1920690045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920690040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e7fd0102a91e24cbc9a091313bf9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058126452
 GameObject:
   m_ObjectHideFlags: 0

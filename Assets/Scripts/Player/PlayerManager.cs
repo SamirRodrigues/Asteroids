@@ -49,14 +49,14 @@ public class PlayerManager : MonoBehaviour
     private void ResetPlayer()
     {
         this.gameObject.transform.position = inicialPosition;
-        //Start Cooldown to Respawn
+        //TODO: Start Cooldown to Respawn
         this.gameObject.SetActive(true);
         StartCoroutine(Invulnerabilite());
     }
 
     void PlayerDeath()
-    {
-        //Instantiate Particles
+    {  
+        //TODO: Instantiate Particles
         lives -= 1;
         OnLivesChange?.Invoke();
         this.gameObject.SetActive(false);
@@ -64,7 +64,6 @@ public class PlayerManager : MonoBehaviour
         if(lives <= 0)
         {
             SceneManager.LoadScene("GameOver");
-            //SceneController.Instance.GameOver();
         }
         else
         {
