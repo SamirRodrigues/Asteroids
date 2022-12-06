@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static ScoreManager Instance { get; private set; }
 
     [HideInInspector] public UnityEvent OnScoreChange;
 
@@ -26,23 +26,25 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+
+        PlayerPrefs.SetInt("CurrentScore", score);        
     }
 
     public void IncreaseScore(int value)
     {
         OnScoreChange?.Invoke();
         score += value;
+
+        PlayerPrefs.SetInt("CurrentScore", score);
+
+        if(PlayerPrefs.GetInt("HighScore") <= PlayerPrefs.GetInt("CurrentScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
     }
 
     public int GetScore()
     {
         return score;
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("GameOver");
-    }
-
-    
+    }    
 }

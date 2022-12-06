@@ -47,7 +47,7 @@ public class Asteroids : MonoBehaviour
                 }
             }
 
-            GameManager.Instance.IncreaseScore(asteroidsPoints);
+            ScoreManager.Instance.IncreaseScore(asteroidsPoints);
 
             SoundBox.Instance.PlaySound(destructionSound);
             

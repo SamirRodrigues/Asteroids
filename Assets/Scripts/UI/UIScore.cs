@@ -7,12 +7,12 @@ public class UIScore : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.OnScoreChange.AddListener(UpdateScore);
+        ScoreManager.Instance.OnScoreChange.AddListener(UpdateScore);
         UpdateScore();
     }
 
     void UpdateScore()
     {
-        scoreText.text = GameManager.Instance.GetScore().ToString();
+        scoreText.text = ScoreManager.Instance.GetScore().ToString();
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -62,7 +63,8 @@ public class PlayerManager : MonoBehaviour
 
         if(lives <= 0)
         {
-            GameManager.Instance.GameOver();
+            SceneManager.LoadScene("GameOver");
+            //SceneController.Instance.GameOver();
         }
         else
         {
