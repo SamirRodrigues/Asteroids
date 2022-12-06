@@ -20,7 +20,13 @@ public class PlayerControllers : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float bulletForce = 30f;
     [SerializeField] private float bulletDurationTime = 2f;
-    [SerializeField] private float cooldown = 0.5f;
+    [SerializeField] private float overHit = 0.5f;
+    private float currentHitTime;
+
+    [Header("BulletTime")]
+    [Tooltip("The timescale changes to 20%, time in second will be seconds*20/100 (sec/5)")]
+    [SerializeField] private float durationTime = 3f;
+    [SerializeField] private float bulletTimeCooldown = 10f;
     private float currentTime;
 
     private void Awake()
@@ -36,7 +42,7 @@ public class PlayerControllers : MonoBehaviour
         LeftRotation();
         RightRotation();
         Propulsion();
-        HyperSpace();
+        BulletTime();
         Shoot();
     }
 
@@ -72,21 +78,32 @@ public class PlayerControllers : MonoBehaviour
         }
     }
 
-    public void HyperSpace()
+    public void BulletTime()
     {
-        if (playerInputActions.Player.HyperSpace.ReadValue<float>() != 0)
+        if (playerInputActions.Player.BulletTime.ReadValue<float>() != 0)
         {
-            Debug.Log("HyperSpace - NOT IMPLEMENTED YET");
+            if(Time.time >= currentTime + bulletTimeCooldown)
+            {
+                currentTime = Time.time;
+                Time.timeScale = 0.3f;
+                StartCoroutine(RestoreTimeScale());
+            }
         }
+    }
+
+    IEnumerator RestoreTimeScale()
+    {
+        yield return new WaitForSeconds(durationTime);
+        Time.timeScale = 1;
     }
 
     public void Shoot()
     {
         if (playerInputActions.Player.Shoot.ReadValue<float>() != 0)
         {
-            if(Time.time >= currentTime + cooldown)
+            if(Time.time >= currentHitTime + overHit)
             {
-                currentTime = Time.time;
+                currentHitTime = Time.time;
                 GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
                 newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletForce * Time.fixedDeltaTime * 1000f);
                 Destroy(newBullet, bulletDurationTime);

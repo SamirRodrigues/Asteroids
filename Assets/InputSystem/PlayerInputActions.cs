@@ -64,7 +64,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HyperSpace"",
+                    ""name"": ""BulletTime"",
                     ""type"": ""Button"",
                     ""id"": ""f311f7b3-f1c5-4e48-8b1c-2f4c6e471bba"",
                     ""expectedControlType"": ""Button"",
@@ -147,7 +147,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""HyperSpace"",
+                    ""action"": ""BulletTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -158,7 +158,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mobile"",
-                    ""action"": ""HyperSpace"",
+                    ""action"": ""BulletTime"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -218,7 +218,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_LeftRotation = m_Player.FindAction("LeftRotation", throwIfNotFound: true);
         m_Player_RightRotation = m_Player.FindAction("RightRotation", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_HyperSpace = m_Player.FindAction("HyperSpace", throwIfNotFound: true);
+        m_Player_BulletTime = m_Player.FindAction("BulletTime", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,7 +282,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LeftRotation;
     private readonly InputAction m_Player_RightRotation;
     private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_HyperSpace;
+    private readonly InputAction m_Player_BulletTime;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -291,7 +291,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @LeftRotation => m_Wrapper.m_Player_LeftRotation;
         public InputAction @RightRotation => m_Wrapper.m_Player_RightRotation;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @HyperSpace => m_Wrapper.m_Player_HyperSpace;
+        public InputAction @BulletTime => m_Wrapper.m_Player_BulletTime;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -313,9 +313,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @HyperSpace.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHyperSpace;
-                @HyperSpace.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHyperSpace;
-                @HyperSpace.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHyperSpace;
+                @BulletTime.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletTime;
+                @BulletTime.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletTime;
+                @BulletTime.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletTime;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -332,9 +332,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
-                @HyperSpace.started += instance.OnHyperSpace;
-                @HyperSpace.performed += instance.OnHyperSpace;
-                @HyperSpace.canceled += instance.OnHyperSpace;
+                @BulletTime.started += instance.OnBulletTime;
+                @BulletTime.performed += instance.OnBulletTime;
+                @BulletTime.canceled += instance.OnBulletTime;
             }
         }
     }
@@ -363,6 +363,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnLeftRotation(InputAction.CallbackContext context);
         void OnRightRotation(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnHyperSpace(InputAction.CallbackContext context);
+        void OnBulletTime(InputAction.CallbackContext context);
     }
 }
