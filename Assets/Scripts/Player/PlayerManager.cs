@@ -69,8 +69,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     void PlayerDeath()
-    {  
+    {
         //TODO: Instantiate Particles
+        Time.timeScale = 1;
         lives -= 1;
         OnLivesChange?.Invoke();
         this.gameObject.SetActive(false);

@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerControllers : MonoBehaviour
 {
+    public static PlayerControllers Instance { get; private set; }
+
+    [HideInInspector] public UnityEvent OnBulletTimeActive;
+
     private Rigidbody2D rb;
     private PlayerInputActions playerInputActions;
 
@@ -35,6 +40,15 @@ public class PlayerControllers : MonoBehaviour
         propulsionAudio = this.GetComponent<AudioSource>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void FixedUpdate()
@@ -84,6 +98,7 @@ public class PlayerControllers : MonoBehaviour
         {
             if(Time.time >= currentTime + bulletTimeCooldown)
             {
+                OnBulletTimeActive?.Invoke();
                 currentTime = Time.time;
                 Time.timeScale = 0.3f;
                 StartCoroutine(RestoreTimeScale());

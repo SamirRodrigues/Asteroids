@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 541920008}
   - component: {fileID: 541920007}
   - component: {fileID: 541920006}
+  - component: {fileID: 541920009}
   m_Layer: 5
   m_Name: BulletTime
   m_TagString: Untagged
@@ -868,6 +869,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541920004}
   m_CullTransparentMesh: 1
+--- !u!114 &541920009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541920004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea72511e28d7bd41bca848f7b1c7829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617022900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1087,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3353d9786be814581f131e9de2b8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBulletTimeActive:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBulletTimeDesactive:
+    m_PersistentCalls:
+      m_Calls: []
   torqueValue: 50
   propulsionValue: 10
   propulsionEffect: {fileID: 1348281821}
