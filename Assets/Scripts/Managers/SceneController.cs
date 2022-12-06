@@ -23,4 +23,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

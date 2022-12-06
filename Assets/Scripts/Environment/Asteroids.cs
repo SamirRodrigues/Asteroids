@@ -25,7 +25,7 @@ public class Asteroids : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         Vector2 propulsion = new Vector2(Random.Range(-maxSpeed,maxSpeed), Random.Range(-maxSpeed, maxSpeed));
@@ -33,6 +33,8 @@ public class Asteroids : MonoBehaviour
 
         rb.AddForce(propulsion);
         rb.AddTorque(torque);
+
+        LevelManager.Instance.IncreaseAsteroidCounter();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,15 +47,17 @@ public class Asteroids : MonoBehaviour
                 {
                     Instantiate(asteroidPrefab, transform.position, transform.rotation);
                 }
-            }
-
-            ScoreManager.Instance.IncreaseScore(asteroidsPoints);
+            }            
 
             SoundBox.Instance.PlaySound(destructionSound);
-            
+
             Destroy(this.gameObject);
         }
     }
 
-    
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.IncreaseScore(asteroidsPoints);
+        LevelManager.Instance.DecreaseAsteroidCounter();
+    }
 }

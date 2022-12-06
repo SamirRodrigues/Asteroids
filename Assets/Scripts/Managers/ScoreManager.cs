@@ -25,9 +25,15 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        score = 0;
-
-        PlayerPrefs.SetInt("CurrentScore", score);        
+        if(LevelManager.Instance.GetLevel() == 1)
+        {
+            score = 0;
+            PlayerPrefs.SetInt("CurrentScore", score);
+        }
+        else
+        {
+            score = PlayerPrefs.GetInt("CurrentScore");
+        }
     }
 
     public void IncreaseScore(int value)

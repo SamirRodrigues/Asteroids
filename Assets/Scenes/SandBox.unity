@@ -951,7 +951,6 @@ GameObject:
   - component: {fileID: 654992801}
   - component: {fileID: 654992802}
   - component: {fileID: 654992797}
-  - component: {fileID: 654992803}
   - component: {fileID: 654992804}
   - component: {fileID: 654992805}
   - component: {fileID: 654992806}
@@ -977,7 +976,11 @@ MonoBehaviour:
   torqueValue: 50
   propulsionValue: 10
   propulsionEffect: {fileID: 1348281821}
-  propulsionAudio: {fileID: 0}
+  propulsionAudio: {fileID: 654992806}
+  bullet: {fileID: 4092708168839931073, guid: 1e8d6182db2e8664884ce03cf53abc50, type: 3}
+  bulletForce: 30
+  bulletDurationTime: 1
+  cooldown: 0.5
 --- !u!4 &654992800
 Transform:
   m_ObjectHideFlags: 0
@@ -1045,21 +1048,6 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
---- !u!114 &654992803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654992796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010d32366f9f5ef4e99ab7412ad77cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 4092708168839931073, guid: 1e8d6182db2e8664884ce03cf53abc50, type: 3}
-  bulletForce: 30
-  bulletDurationTime: 1
 --- !u!114 &654992804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,6 +2062,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1422682295}
   - component: {fileID: 1422682294}
+  - component: {fileID: 1422682297}
+  - component: {fileID: 1422682296}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2111,6 +2101,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422682296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422682293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78b7dec4985d4848ad17965652c331d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1422682297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422682293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3932257fc1ffe54fad9373d2204e8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1432268650
 PrefabInstance:
   m_ObjectHideFlags: 0

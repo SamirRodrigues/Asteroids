@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
 
         if(lives <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneController.Instance.GameOver();
         }
         else
         {

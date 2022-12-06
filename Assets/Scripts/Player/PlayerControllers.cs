@@ -8,11 +8,20 @@ public class PlayerControllers : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerInputActions playerInputActions;
 
+    [Header("Moviment")]
     [SerializeField] private float torqueValue = 10f;
     [SerializeField] private float propulsionValue = 10f;
 
+    [Header("Enviroment")]
     [SerializeField] private GameObject propulsionEffect;
     [SerializeField] private AudioSource propulsionAudio;
+
+    [Header("Shoot")]
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float bulletForce = 30f;
+    [SerializeField] private float bulletDurationTime = 2f;
+    [SerializeField] private float cooldown = 0.5f;
+    private float currentTime;
 
     private void Awake()
     {
@@ -28,6 +37,7 @@ public class PlayerControllers : MonoBehaviour
         RightRotation();
         Propulsion();
         HyperSpace();
+        Shoot();
     }
 
 
@@ -71,5 +81,19 @@ public class PlayerControllers : MonoBehaviour
             Debug.Log("HyperSpace - NOT IMPLEMENTED YET");
              
         }
-    }    
+    }
+
+    public void Shoot()
+    {
+        if (playerInputActions.Player.Shoot.ReadValue<float>() != 0)
+        {
+            if(Time.time >= currentTime + cooldown)
+            {
+                currentTime = Time.time;
+                GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
+                newBullet.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletForce * Time.fixedDeltaTime * 1000f);
+                Destroy(newBullet, bulletDurationTime);
+            }
+        }
+    }
 }
